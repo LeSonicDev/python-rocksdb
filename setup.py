@@ -5,13 +5,7 @@ from setuptools import Extension
 
 
 extra_compile_args = [
-    '-std=c++11',
-    '-O3',
     '-Wall',
-    '-Wextra',
-    '-Wconversion',
-    '-fno-strict-aliasing',
-    '-fno-rtti',
 ]
 
 if platform.system() == 'Darwin':
@@ -36,7 +30,7 @@ setup(
         ['rocksdb/_rocksdb.pyx'],
         extra_compile_args=extra_compile_args,
         language='c++',
-        libraries=['rocksdb', 'snappy', 'bz2', 'z', 'lz4'],
+        libraries=['rocksdb', 'snappy', 'bz2', 'zstd', 'lz4', 'xxhash', 'Shlwapi', 'Rpcrt4'],
     )],
     extras_require={
         "doc": ['sphinx_rtd_theme', 'sphinx'],
